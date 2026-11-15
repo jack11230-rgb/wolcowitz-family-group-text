@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Twilio voice fallback for the Wolcowitz Family Hotline: used only if the main app
+     is waking up. Plays the greeting from this static site, then hands the caller's
+     choice to the app (awake by then). -->
+<Response>
+  <Gather input="dtmf" numDigits="1" timeout="10" action="https://wolcowitz-hotline-davz.onrender.com/menu" method="POST">
+    <Play>https://wolcowitz-family-group-text.onrender.com/hotline/greeting.mp3</Play>
+  </Gather>
+  <Redirect method="POST">https://wolcowitz-hotline-davz.onrender.com/voice</Redirect>
+</Response>
